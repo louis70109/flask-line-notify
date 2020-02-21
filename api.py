@@ -10,7 +10,7 @@ URI = os.getenv('REDIRECT_URI')
 
 @app.route('/notify')
 def home():
-    return render_template('notify_index.html')
+    return render_template('notify_index.html', client_id=CLIENT_ID, URI=URI)
 
 
 @app.route('/notify/check')

@@ -16,8 +16,8 @@
     function Auth() {
       var URL = 'https://notify-bot.line.me/oauth/authorize?';
       URL += 'response_type=code';
-      URL += '&client_id=Dj0Bbj3Ub9JYkCIrmWAkND';
-      URL += '&redirect_uri=https://8dcdeafc.ngrok.io/notify/check';
+      URL += '&client_id={{CLIENT_ID}}';
+      URL += '&redirect_uri={{URI}}';
       URL += '&scope=notify';
       URL += '&state=nostate';
       window.location.href = URL;
