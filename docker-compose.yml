@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  test_url_for:
+    image: test_url_for
+    build: .
+    ports:
+      - 5000:5000
