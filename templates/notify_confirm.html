@@ -7,7 +7,23 @@
     <title>message check</title>
   </head>
   <body>
-    verify message:{{token}}
-    <div id="message"></div>
+    <span>請輸入文字: </span>
+    <input type="text" name="user_text" id="user_text" />
+    <button id="submit_btn">Send</button>
   </body>
+  <script>
+    submit = document.getElementById('submit_btn');
+    submit.addEventListener('click', () => {
+      const userText = document.getElementById('user_text').value;
+      fetch('/notify/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: userText, token: 'Bearer {{token}}' }),
+      }).then(response => {
+        alert('已發送！');
+      });
+    });
+  </script>
 </html>
