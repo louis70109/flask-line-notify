@@ -10,7 +10,7 @@ URI = os.getenv('REDIRECT_URI')
 
 @app.route('/notify')
 def home():
-    return render_template('notify_index.html', client_id=CLIENT_ID, URI=URI)
+    return render_template('notify_index.html', CLIENT_ID=CLIENT_ID, URI=URI)
 
 
 @app.route('/notify/check')
@@ -33,4 +33,4 @@ def check():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
