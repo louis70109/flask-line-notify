@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, render_template, request, json, url_for
+from flask import Flask, render_template, request
 import os
 
 app = Flask(__name__)
@@ -8,13 +8,14 @@ CLIENT_ID = os.getenv('CLIENT_ID')
 SECRET = os.getenv('CLIENT_SECRET')
 URI = os.getenv('REDIRECT_URI')
 
+
 @app.route('/notify')
 def home():
     return render_template('notify_index.html', CLIENT_ID=CLIENT_ID, URI=URI)
 
 
 @app.route('/notify/check')
-def check():
+def confirm():
     client = {
         'grant_type': 'authorization_code',
         'code': request.args.get('code'),
@@ -25,11 +26,23 @@ def check():
     r = requests.post(
         'https://notify-bot.line.me/oauth/token', data=client)
     if r.status_code == 200:
-        req = r.json()
-        token = req['access_token']
-        return render_template('notify_confirm.html', token=token)
-    else:
-        return {'message': 'Error'}, 400
+        payload = r.json()
+        return render_template('notify_confirm.html', token=payload.get('access_token'))
+    return {'message': 'Error'}, 400
+
+
+@app.route('/notify/send', methods=['POST'])
+def send():
+    payload = request.get_json()
+    r = requests.post(
+        "https://notify-api.line.me/api/notify",
+        headers={
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': payload.get('token')
+        },
+        data={'message': payload.get('message')}
+    )
+    return {'result': r.text()}, r.status_code
 
 
 if __name__ == '__main__':
