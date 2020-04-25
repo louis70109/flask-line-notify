@@ -6,6 +6,7 @@
 
 可以參考我之前[鐵人賽的文章](https://nijialin.com/2019/09/20/Day5-%E5%81%9A%E4%B8%80%E5%80%8B%E8%88%87-LINE-Notify-%E9%80%A3%E5%8B%95%E7%9A%84%E6%9C%8D%E5%8B%99/)。
 
+Callback Url 為 `http://localhost:5000/notify/check`
 # 技能
 
 - Python 3.7
@@ -15,12 +16,14 @@
 # 啟動
 
 ```sh
+cp .env.sample .env
 python api.py
 ```
 
 或是
 
 ```dockerfile
+cp .env.sample .env
 docker-compose up
 ```
 
