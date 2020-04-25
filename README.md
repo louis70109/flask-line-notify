@@ -34,15 +34,25 @@ docker-compose up
 開啟瀏覽器後輸入 `http://localhost:5000/notify`後就會看到一個輸入按鈕
 
 ![](https://i.imgur.com/RraASZL.png)
+
 點選之後會到 LINE 的綁定畫面，選`1對1聊天接收`
+
 ![](https://i.imgur.com/jhB3pMV.png)
+
 這時候 LINE Notify 就會推播一個綁定成功的通知
+
 ![](https://i.imgur.com/0KlKrXE.png)
+
 同時瀏覽器會被導到`/notify/check` 並帶上 code & state 的資訊
+
 ![](https://i.imgur.com/oGs5NWI.png)
+
 接著再輸入框上輸入文字就會推播囉！
+
 ![](https://i.imgur.com/U9zZnmm.png)
+
 結果出爐:
+
 ![](https://i.imgur.com/KjGXOo3.png)
 
 # 路由
