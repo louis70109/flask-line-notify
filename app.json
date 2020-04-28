@@ -5,7 +5,7 @@
   "keywords": ["Line", "flask", "python", "static"],
   "buildpacks": [
     {
-      "url": "https://github.com/kr/heroku-buildpack-python.git"
+      "url": "https://github.com/heroku/heroku-buildpack-python.git"
     },
     {
       "url": "heroku/python"
