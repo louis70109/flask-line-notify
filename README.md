@@ -60,13 +60,16 @@ docker-compose up
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
+按下上面部署按鈕之後需要設定 LINE Notify 所需三個`環境變數`
+![heroku-env-settings](https://i.imgur.com/wV5rUyMl.png)
+
 # 路由
 
-- GET /notify
+- GET /
   - 使用者點選綁定的畫面
-- GET /notify/check
+- GET /callback
   - LINE Notify 認證完後的 callback 路由
-- POST /notify/send
+- POST /send
   - 幫忙發送推播的路由(因為有[ CORS 問題](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)所以需要一個 api 來幫忙轉發)
 
 # License
