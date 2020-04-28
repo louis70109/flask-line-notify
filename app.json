@@ -2,7 +2,12 @@
   "name": "flask-line-notify",
   "description": "Line Notify Template",
   "repository": "https://github.com/louis70109/flask-line-notify",
-  "keywords": ["Line", "flask", "python", "static"],
+  "keywords": [
+    "Line",
+    "flask",
+    "python",
+    "static"
+  ],
   "buildpacks": [
     {
       "url": "https://github.com/heroku/heroku-buildpack-python.git"
