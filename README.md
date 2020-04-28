@@ -67,9 +67,9 @@ docker-compose up
 
 - GET /
   - 使用者點選綁定的畫面
-- GET /callback
+- GET /notify/check
   - LINE Notify 認證完後的 callback 路由
-- POST /send
+- POST /notify/send
   - 幫忙發送推播的路由(因為有[ CORS 問題](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)所以需要一個 api 來幫忙轉發)
 
 # License

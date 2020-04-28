@@ -14,7 +14,7 @@ def home():
     return render_template('notify_index.html', CLIENT_ID=CLIENT_ID, URI=URI)
 
 
-@app.route('/callback')
+@app.route('/notify/check')
 def confirm():
     client = {
         'grant_type': 'authorization_code',
@@ -31,7 +31,7 @@ def confirm():
     return {'message': 'Error'}, 400
 
 
-@app.route('/send', methods=['POST'])
+@app.route('/notify/send', methods=['POST'])
 def send():
     payload = request.get_json()
     r = requests.post(
