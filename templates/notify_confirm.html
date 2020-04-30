@@ -4,12 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>message check</title>
+    <title>驗證來源以及發送範例</title>
   </head>
   <body>
+    <h2>送存文字 or 貼圖</h2>
     <span>請輸入文字: </span>
     <input type="text" name="user_text" id="user_text" />
-    <button id="submit_btn">Send</button>
+    <button id="submit_btn">發送文字</button>
+    <button id="submit_sticker">送貼圖</button>
+    <hr>
+    <h2>發送圖片網址 (建議有 SSL)</h2>
+    <span>請輸入文字: </span>
+    <input type="text" name="url_text" id="user_text_url" />
+    <span>請輸入網址: </span>
+    <input type="text" name="url_text" id="url_text" />
+    <button id="submit_url">發送網址</button>
+    <hr>
+    <h2>發送靜態圖片範例</h2>
+    <span>請輸入文字: </span>
+    <input type="text" name="path_text" id="user_text_path" />
+    <button id="submit_path">發送靜態圖片</button>
+    <hr>
+    <h2>註銷 token</h2>
+    <button id="submit_revoke">註銷</button>
+
   </body>
   <script>
     submit = document.getElementById('submit_btn');
@@ -17,12 +35,58 @@
       const userText = document.getElementById('user_text').value;
       fetch('/notify/send', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: userText, token: 'Bearer {{token}}' }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userText, token: '{{token}}' }),
       }).then(response => {
-        alert('已發送！');
+        alert('訊息已發送！');
+      });
+    });
+
+    submit_sticker = document.getElementById('submit_sticker');
+    submit_sticker.addEventListener('click', () => {
+      const userText = document.getElementById('user_text').value;
+      fetch('/notify/send/sticker', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userText, token: '{{token}}' }),
+      }).then(response => {
+        alert('貼圖已發送！');
+      });
+    });
+
+    submit_url = document.getElementById('submit_url');
+    submit_url.addEventListener('click', () => {
+      const userText = document.getElementById('user_text_url').value;
+      const userUrl = document.getElementById('url_text').value;
+      fetch('/notify/send/url', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userText, url: userUrl, token: '{{token}}' }),
+      }).then(response => {
+        alert('圖片網址已發送！');
+      });
+    });
+
+    submit_path = document.getElementById('submit_path');
+    submit_path.addEventListener('click', () => {
+      const userText = document.getElementById('user_text_path').value;
+      fetch('/notify/send/path', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userText, token: '{{token}}' }),
+      }).then(response => {
+        alert('圖片已發送！');
+      });
+    });
+
+    submit_revoke = document.getElementById('submit_revoke');
+    submit_revoke.addEventListener('click', () => {
+      fetch('/notify/revoke', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: '{{token}}' }),
+      }).then(response => {
+        alert('已註銷！');
       });
     });
   </script>
