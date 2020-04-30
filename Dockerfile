@@ -6,4 +6,4 @@ COPY ["requirements.txt", "/app/"]
 RUN python3 -m pip install -r requirements.txt
 ADD . /app
 EXPOSE 5000
-CMD ["python3", "-m", "api"]
+CMD ["gunicorn", "api:app", "--log-file=-"]
