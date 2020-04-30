@@ -7,20 +7,9 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>LINE Notify</title>
   </head>
   <body>
-    <button onclick="Auth();">點選這裡連結到LineNotify</button>
+    <button onclick="window.location.href = '{{auth_url}}';">點選這裡連結到LineNotify</button>
   </body>
-  <script>
-    function Auth() {
-      var URL = 'https://notify-bot.line.me/oauth/authorize?';
-      URL += 'response_type=code';
-      URL += '&client_id={{CLIENT_ID}}';
-      URL += '&redirect_uri={{URI}}';
-      URL += '&scope=notify';
-      URL += '&state=nostate';
-      window.location.href = URL;
-    }
-  </script>
 </html>
