@@ -65,10 +65,10 @@ def send_url():
 @app.route('/notify/send/path', methods=['POST'])
 def send_file():
     payload = request.get_json()
-    response = lotify.send_message_with_image_path(
+    response = lotify.send_message_with_image_file(
         access_token=payload.get('token'),
         message=payload.get('message'),
-        image_path='./test_data/dog.png'
+        file=open('./test_data/dog.png', 'rb')
     )
     return {'result': response.get('message')}, response.get('status')
 
