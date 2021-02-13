@@ -17,7 +17,8 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 按下上面部署按鈕之後需要設定 LINE Notify 所需三個`環境變數`
-![heroku-env-settings](https://i.imgur.com/wV5rUyMl.png)
+
+![](https://i.imgur.com/jtw8KgI.png)
 
 
 # 本地端測試
