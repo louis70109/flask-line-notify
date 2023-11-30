@@ -5,5 +5,5 @@ WORKDIR /app
 COPY ["requirements.txt", "/app/"]
 RUN python3 -m pip install -r requirements.txt
 ADD . /app
-EXPOSE 5000
+EXPOSE 8080
 CMD ["gunicorn", "api:app", "--log-file=-"]
