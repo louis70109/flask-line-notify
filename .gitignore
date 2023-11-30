@@ -24,3 +24,4 @@ node_modules/
 .env
 __pycache__
 .idea
+venv

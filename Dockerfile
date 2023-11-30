@@ -1,5 +1,4 @@
 FROM python:3.7
-MAINTAINER NiJia <louis70109@gmail.com>
 LABEL Name=flask-line-notify Version=0.0.1
 WORKDIR /app
 COPY ["requirements.txt", "/app/"]
