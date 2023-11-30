@@ -12,9 +12,9 @@
 
 設定的 Callback Url 為 `http://YOUR_DOMAIN/callback`，本地端測試網址就為 `http://localhost:5000/callback`
 
-# 一鍵部署
+# GCP 一鍵佈署
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
 
 按下上面部署按鈕之後需要設定 LINE Notify 所需三個`環境變數`
 

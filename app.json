@@ -1,19 +1,29 @@
 {
   "name": "flask-line-notify",
-  "description": "Line Notify Template",
-  "repository": "https://github.com/louis70109/flask-line-notify",
-  "keywords": [
-    "LINE",
-    "flask",
-    "python",
-    "static"
-  ],
-  "buildpacks": [
-    {
-      "url": "https://github.com/heroku/heroku-buildpack-python.git"
+  "env": {
+    "LINE_CLIENT_ID": {
+      "description": "LINE Bot access token",
+      "value": "ooooo",
+      "required": true
     },
-    {
-      "url": "heroku/python"
+    "LINE_CLIENT_SECRET": {
+      "description": "LINE Bot secret",
+      "value": "xxxx",
+      "required": true
+    },
+    "LINE_REDIRECT_URI": {
+      "description": "API environment",
+      "value": "production",
+      "required": true
     }
-  ]
+  },
+  "options": {
+    "allow-unauthenticated": true,
+    "memory": "256Mi",
+    "cpu": "1",
+    "port": 8080,
+    "http2": false,
+    "concurrency": 3,
+    "max-instances": 1
+  }
 }
