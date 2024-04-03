@@ -1,6 +1,27 @@
+# fly.toml app configuration file generated for flask-line-notify on 2024-04-04T01:11:08+08:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'flask-line-notify'
+primary_region = 'nrt'
+
+[build]
+
 [env]
-  CHANNEL_ACCESS_TOKEN = 
-  CHANNEL_SECRET = 
-  NODE_ENV = 
-  BASE_URL = 'your service url'
-  GITHUB = 
+  LINE_CLIENT_ID = ''
+  LINE_CLIENT_SECRET = ''
+  LINE_REDIRECT_URI = 'https://DOMAIN/callback'
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '256mb'
+  cpu_kind = 'shared'
+  cpus = 1
