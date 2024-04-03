@@ -1,0 +1,6 @@
+[env]
+  CHANNEL_ACCESS_TOKEN = 
+  CHANNEL_SECRET = 
+  NODE_ENV = 
+  BASE_URL = 'your service url'
+  GITHUB = 
